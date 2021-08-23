@@ -19,6 +19,10 @@ class Player {
 			this.y = height - this.height;
 		}
         image(game.playerImage, this.x, this.y, this.width, this.height);
+        // draw all the laser in the array
+        this.lasers.forEach(function (laser) {
+            laser.draw();
+        })
         }
     //movement of the player
     moveLeft () {
@@ -65,11 +69,11 @@ class Player {
         //add new laser when space bar pushed down
         if (frameCount % 20 === 0) {
             this.lasers.push(new Laser(this.x + (this.width - 9)/ 2, this.y - 37));
+            this.lasers.forEach((laser) => {
+                laser.playSound();
+            })
         }
-        // draw all the laser in the array
-        this.lasers.forEach(function (laser) {
-            laser.draw();
-        })
+        
         // remove laser outside of the screen
         this.lasers = this.lasers.filter((laser) => {
 			if (laser.y < 0) {

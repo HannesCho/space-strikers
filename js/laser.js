@@ -10,8 +10,11 @@ class Laser {
     }
 
     draw() {
-        this.laserSound.play();
         this.y -= this.speed;
         image(game.laserImages[0].src, this.x, this.y)
+    }
+
+    playSound () {
+        this.laserSound.play();
     }
 }
