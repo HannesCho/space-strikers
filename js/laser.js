@@ -6,7 +6,6 @@ class Laser {
         this.y = y;
         this.width = 9;
         this.height = 37;
-        this.laserSound = new Audio('../assets/sounds/laser1.ogg')
     }
 
     draw() {
@@ -14,7 +13,4 @@ class Laser {
         image(game.laserImages[0].src, this.x, this.y)
     }
 
-    playSound () {
-        this.laserSound.play();
-    }
 }

@@ -30,17 +30,17 @@ function draw() {
     if (keyIsDown(40)) {
         game.player.moveDown();
     }
-    if (keyIsDown(32)) {
-        if (frameCount % 20 === 0) {
-            laserSound.play();
-            game.player.fierLaser();
-         }
+    if (frameCount % 20 === 0) {
+        if (keyIsDown(32)) {
+            if (frameCount % 20 === 0) {
+                game.player.fierLaser();
+            }
+        }
     }
 }
 
 function keyPressed() {
     if (keyCode === 32) {
-        laserSound.play() 
         game.player.fierLaser()
     }
 }

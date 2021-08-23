@@ -10,8 +10,7 @@ class Player {
 	}
 
     preload () {
-        
-
+        this.lasers = new Laser;
     }
 
     draw () {
@@ -70,13 +69,22 @@ class Player {
     fierLaser () {
         // have to preload all the image before draw!!
         //add new laser when space bar pushed down
-        this.lasers.push(new Laser(this.x + (this.width - 9)/ 2, this.y - 37));
+       
+            if (this.lasers.length <= 5) {
+                this.lasers.push(new Laser(this.x + (this.width - 9)/ 2, this.y - 37));
+                this.lasers.forEach((laser) => {
+                    laser.draw();
+                    laserSound.play();
+                })
+            }
+        
+        
                 
         // remove laser outside of the screen
         this.lasers = this.lasers.filter((laser) => {
 			if (laser.y < 0) {
 				return false
-			} else {
+			} else { 
 				return true
 			}
         })
