@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Rampart+One&display=swap");
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Rampart One", cursive;
+  background-color: rgb(184, 184, 184);
+}
