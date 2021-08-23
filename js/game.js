@@ -6,6 +6,7 @@ class Game {
         this.backgroundMusic = null;
         this.enemyImage = [];
         this.enemies = [];
+        this.laserImages = [];
     }
 
     setup () {
@@ -15,6 +16,7 @@ class Game {
     }
 
     preload () {
+        //preload all the images
         this.backgroundImages = [
         {src : loadImage('../assets/backgrounds/background-1.png'), y: 0, speed: 1}
         ];
@@ -22,6 +24,9 @@ class Game {
         this.enemyImage =[
             {src : loadImage('../assets/enemies/enemyBlack1.png')}
         ]
+        this.laserImages = [
+            {src : loadImage('../assets/laser/laserBlue03.png')}
+            ];
     }
 
     draw() {

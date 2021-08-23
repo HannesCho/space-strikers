@@ -24,5 +24,8 @@ function draw() {
     if (keyIsDown(40)) {
         game.player.moveDown();
     }
+    if (keyIsDown(32)) {
+        game.player.fierLaser();
+        }
 }
 
