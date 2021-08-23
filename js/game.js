@@ -22,7 +22,10 @@ class Game {
         ];
         this.playerImage = loadImage('../assets/player/playerShip1_blue.png') 
         this.enemyImage =[
-            {src : loadImage('../assets/enemies/enemyBlack1.png')}
+            {src : loadImage('../assets/enemies/enemyBlack1.png')},
+            {src : loadImage('../assets/enemies/image96.png')},
+            {src : loadImage('../assets/enemies/image99.png')},
+            {src : loadImage('../assets/enemies/image100.png')},
         ]
         this.laserImages = [
             {src : loadImage('../assets/laser/laserBlue03.png')}

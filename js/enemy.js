@@ -18,12 +18,15 @@ class Enemy {
         let laserY = laserInfo.y + laserInfo.height / 2;
 
         let enemyX = this.x + this.width / 2;
-        let enemyY = this.y + this.height / 2;
-
-        if (dist(laserX, laserY, enemyX, enemyY) > 30) {
+        let enemyY = this.y - this.height / 2;
+       
+        if (dist(laserX, laserY, enemyX, enemyY) > 25) {
 			return false
 		} else {
 			// here we have a collision
+            image(game.enemyImage[3].src, enemyX-2, this.y-this.height)
+            image(game.enemyImage[2].src, enemyX-10, this.y-this.height)
+            image(game.enemyImage[1].src, this.x, this.y-this.height)
 			return true;
 		}
     }
