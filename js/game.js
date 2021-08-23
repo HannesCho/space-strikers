@@ -4,6 +4,8 @@ class Game {
         this.backgroundImages = [];
         this.playerImage = null;
         this.backgroundMusic = null;
+        this.enemyImage = [];
+        this.enemies = [];
     }
 
     setup () {
@@ -17,6 +19,9 @@ class Game {
         {src : loadImage('../assets/backgrounds/background-1.png'), y: 0, speed: 1}
         ];
         this.playerImage = loadImage('../assets/player/playerShip1_blue.png') 
+        this.enemyImage =[
+            {src : loadImage('../assets/enemies/enemyBlack1.png')}
+        ]
     }
 
     draw() {
@@ -25,7 +30,23 @@ class Game {
         //background music setting
         this.backgroundMusic.loop = true;
         this.backgroundMusic.volume = 0.05;
-        this.backgroundMusic.play();
+        // this.backgroundMusic.play();
+
+        //add enemy in every 200 frame
+        if (frameCount % 200 === 0) {
+            this.enemies.push(new Enemy())
+        }
+        this.enemies.forEach((enemy) => {
+            enemy.draw();
+        })
+        //enemy will disappear when it reaches to the bottom
+        this.enemies = this.enemies.filter((enemy) => {
+            if (enemy.y > height + enemy.height) {
+                return false
+            } else {
+                return true
+            }
+        })
     }
 
 }
