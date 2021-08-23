@@ -1,12 +1,18 @@
 const game = new Game;
+let backgroundMusic;
+let laserSound;
 
 function preload() {
+    backgroundMusic = loadSound('../assets/sounds/POL-waving-grass-short.wav');
+    laserSound = loadSound('../assets/sounds/laser1.ogg')
     game.preload()
 }
 
 function setup() {
     createCanvas(600, 600)
     game.setup()
+    backgroundMusic.play();
+    // backgroundMusic.loop();
 }
 
 function draw() {
@@ -25,7 +31,17 @@ function draw() {
         game.player.moveDown();
     }
     if (keyIsDown(32)) {
-        game.player.fierLaser();
-        }
+        if (frameCount % 20 === 0) {
+            laserSound.play();
+            game.player.fierLaser();
+         }
+    }
+}
+
+function keyPressed() {
+    if (keyCode === 32) {
+        laserSound.play() 
+        game.player.fierLaser()
+    }
 }
 

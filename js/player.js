@@ -70,13 +70,8 @@ class Player {
     fierLaser () {
         // have to preload all the image before draw!!
         //add new laser when space bar pushed down
-        if (frameCount % 20 === 0) {
-            this.lasers.push(new Laser(this.x + (this.width - 9)/ 2, this.y - 37));
-            this.lasers.forEach((laser) => {
-                laser.playSound();
-            })
-        }
-        
+        this.lasers.push(new Laser(this.x + (this.width - 9)/ 2, this.y - 37));
+                
         // remove laser outside of the screen
         this.lasers = this.lasers.filter((laser) => {
 			if (laser.y < 0) {
@@ -95,7 +90,7 @@ class Player {
         let enemyX = enemyInfo.x + enemyInfo.width / 2;
         let enemyY = enemyInfo.y - enemyInfo.height / 2;
        
-        if (dist(playerX, playerY, enemyX, enemyY) > 25) {
+        if (dist(playerX, playerY, enemyX, enemyY) > 50) {
 			return false
 		} else {
 			// here we have a collision
