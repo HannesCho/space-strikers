@@ -14,4 +14,42 @@ class Player {
 		}
         image(game.playerImage, this.x, this.y, this.width, this.height);
     }
+
+    moveLeft () {
+        this.x -= this.speed;
+        if (this.x <= 0){
+            this.x = 0;
+        } 
+        if (this.x >= width - this.width) {
+            this.x = width - this.width
+        }  
+    }
+
+    moveRight () {
+        this.x += this.speed;
+        if (this.x <= 0){
+            this.x = 0;
+        } 
+        if (this.x >= width - this.width) {
+            this.x = width - this.width
+        }  
+    }   
+    moveUp () {
+        this.y -= this.speed;
+        if (this.y <= 0){
+            this.y = 0;
+        } 
+        if (this.y >= height - this.height) {
+            this.y = height - this.height
+        } 
+    }
+    moveDown () {
+        this.y += this.speed;
+        if (this.y <= 0){
+            this.y = 0;
+        } 
+        if (this.y >= height - this.height) {
+            this.y = height - this.height
+        } 
+    }
 }

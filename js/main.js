@@ -11,5 +11,18 @@ function setup() {
 
 function draw() {
     game.draw();
+    // player move
+    if (keyIsDown(37)) {
+        game.player.moveLeft();
+    }
+    if (keyIsDown(38)) {
+        game.player.moveUp();
+    }
+    if (keyIsDown(39)) {
+        game.player.moveRight();
+    }
+    if (keyIsDown(40)) {
+        game.player.moveDown();
+    }
 }
 
