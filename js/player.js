@@ -6,6 +6,7 @@ class Player {
 		this.y = height - this.height;
         this.speed = 3;
         this.lasers = [];
+        this.playerImage = null;
 	}
 
     preload () {
@@ -18,12 +19,14 @@ class Player {
         if (this.y >= height - this.height) {
 			this.y = height - this.height;
 		}
-        image(game.playerImage, this.x, this.y, this.width, this.height);
+        this.playerImage = image(game.playerImage[0], this.x, this.y, this.width, this.height);
         // draw all the laser in the array
         this.lasers.forEach(function (laser) {
             laser.draw();
         })
-        }
+        game.gameOver();    
+        
+    }
     //movement of the player
     moveLeft () {
         this.x -= this.speed;
@@ -83,5 +86,20 @@ class Player {
 			}
         })
     
+    }
+
+    collision (enemyInfo){
+        let playerX = this.x + this.width / 2;
+        let playerY = this.y + this.height / 2;
+
+        let enemyX = enemyInfo.x + enemyInfo.width / 2;
+        let enemyY = enemyInfo.y - enemyInfo.height / 2;
+       
+        if (dist(playerX, playerY, enemyX, enemyY) > 25) {
+			return false
+		} else {
+			// here we have a collision
+			return true;
+		}
     }
 }

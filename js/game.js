@@ -2,7 +2,7 @@ class Game {
 
     constructor () {
         this.backgroundImages = [];
-        this.playerImage = null;
+        this.playerImage = [];
         this.backgroundMusic = null;
         this.enemyImage = [];
         this.enemies = [];
@@ -20,7 +20,10 @@ class Game {
         this.backgroundImages = [
         {src : loadImage('../assets/backgrounds/background-1.png'), y: 0, speed: 1}
         ];
-        this.playerImage = loadImage('../assets/player/playerShip1_blue.png') 
+        this.playerImage = [loadImage('../assets/player/playerShip1_blue.png'),
+                            loadImage('../assets/player/playerShip1_damage1.png'),
+                            loadImage('../assets/player/playerShip1_damage2.png'),
+                            loadImage('../assets/player/playerShip1_damage3.png') ]
         this.enemyImage =[
             {src : loadImage('../assets/enemies/enemyBlack1.png')},
             {src : loadImage('../assets/enemies/image96.png')},
@@ -69,6 +72,23 @@ class Game {
                 }
             })
         })
+        
+        
+    }
+
+    gameOver () {
+        this.enemies.forEach((enemy) => {
+            if (this.player.collision(enemy) === true) {
+                this.enemies = this.enemies.filter((el) => {
+                    return el != enemy
+                })
+                console.log('game over!');
+                noLoop();
+            } 
+        })
+            
+        
+        
     }
 
 }
