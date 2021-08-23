@@ -52,6 +52,20 @@ class Game {
                 return true
             }
         })
+
+        // when missile hit the enemy both will disappear
+        this.player.lasers.forEach((laser) => {
+            this.enemies.forEach((enemy) => {
+                if (enemy.destroyed(laser) === true) {
+                    this.enemies = this.enemies.filter((el) => {
+                        return el != enemy
+                    })
+                    this.player.lasers = this.player.lasers.filter((el) => {
+                        return el != laser
+                    })
+                }
+            })
+        })
     }
 
 }
