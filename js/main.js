@@ -11,11 +11,12 @@ function preload() {
 }
 
 function setup() {
-    createCanvas(600, 600)
+    const canvas = createCanvas(600, 600)
+    canvas.parent('sketch-holder');
     game.setup()
-    backgroundMusic.setVolume(0.01);
-    backgroundMusic.play();
-    backgroundMusic.loop();
+    // backgroundMusic.setVolume(0.01);
+    // backgroundMusic.play();
+    // backgroundMusic.loop();
     
 }
 

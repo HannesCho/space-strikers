@@ -7,6 +7,7 @@ class Player {
         this.speed = 3;
         this.lasers = [];
         this.playerImage = null;
+        this.score = 0;
 	}
 
     preload () {
@@ -79,9 +80,6 @@ class Player {
                     
                 })
             }
-        
-        
-                
         // remove laser outside of the screen
         this.lasers = this.lasers.filter((laser) => {
 			if (laser.y < 0) {

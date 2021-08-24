@@ -8,3 +8,8 @@ body {
   font-family: "Rampart One", cursive;
   background-color: rgb(184, 184, 184);
 }
+
+#sketch-holder {
+  width: 600px;
+  height: 600px;
+}
