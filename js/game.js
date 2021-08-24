@@ -79,6 +79,8 @@ class Game {
     }
 
     gameStart () {
+        document.querySelector('.pause-btn').innerText = 'Pause'
+        startBtn.mousePressed(game.gamePause)
         return gameStart = true;
     }
 
@@ -86,15 +88,19 @@ class Game {
         gamePause = !gamePause;
         if (!gameOver){
             if (gamePause) {
-                console.log('game paused');
+                document.querySelector('.pause-btn').innerText = 'Continue'
                 noLoop();
                 backgroundMusic.stop();
             } else {
-                console.log('game continue');
+                document.querySelector('.pause-btn').innerText = 'Pause'
                 loop();
                 backgroundMusic.play()
             }
         } 
+    }
+
+    gameRestart () {
+        location.reload();
     }
 
     gameOver () {

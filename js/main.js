@@ -22,20 +22,21 @@ function setup() {
     backgroundMusic.setVolume(0.01);
     backgroundMusic.play();
     backgroundMusic.loop();
-    muteBtn = createButton('Mute /Unmute');
+    muteBtn = createButton('Mute');
     muteBtn.parent('mute');
-    muteBtn.mousePressed(muteBG).addClass('btn');
+    muteBtn.mousePressed(muteBG).addClass('btn mute-btn');
     startBtn = createButton('Start');
-    startBtn.parent('start').addClass('btn');
+    startBtn.parent('start-pause').addClass('btn pause-btn');
     startBtn.mousePressed(game.gameStart)
-    pauseBtn = createButton('Pause').addClass('btn');
-    pauseBtn.parent('pause');
-    pauseBtn.mouseClicked(game.gamePause);
+    pauseBtn = createButton('Restart').addClass('btn');
+    pauseBtn.parent('restart');
+    pauseBtn.mouseClicked(game.gameRestart);
 }
 
 function draw() {
     if (gameStart){
         game.draw();
+        
     
     // player move
         if (keyIsDown(37)) {
@@ -78,7 +79,9 @@ function muteBG() {
     musicPlay = !musicPlay;
     if (musicPlay) {
         backgroundMusic.play();
+        document.querySelector('.mute-btn').innerText = 'Mute'
     } else {
         backgroundMusic.stop();
+        document.querySelector('.mute-btn').innerText = 'Unmute'
     }
 }
