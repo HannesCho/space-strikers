@@ -24,6 +24,7 @@ class Enemy {
 			return false
 		} else {
 			// here we have a collision
+            destroyedSound.play()
             image(game.enemyImage[3].src, enemyX-2, this.y-this.height)
             image(game.enemyImage[2].src, enemyX-10, this.y-this.height)
             image(game.enemyImage[1].src, this.x, this.y-this.height)

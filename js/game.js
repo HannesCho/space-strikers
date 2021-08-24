@@ -78,6 +78,7 @@ class Game {
                     return el != enemy
                 })
                 console.log('game over!');
+                backgroundMusic.stop();
                 noLoop();
             } 
         })

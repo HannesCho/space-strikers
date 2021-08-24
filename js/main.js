@@ -1,10 +1,12 @@
 const game = new Game;
 let backgroundMusic;
 let laserSound;
+let destroyedSound;
 
 function preload() {
     backgroundMusic = loadSound('../assets/sounds/POL-waving-grass-short.wav');
     laserSound = loadSound('../assets/sounds/laser1.ogg')
+    destroyedSound = loadSound('../assets/sounds/destroyed.wav')
     game.preload()
 }
 
