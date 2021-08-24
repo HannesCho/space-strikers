@@ -25,9 +25,12 @@ class Game {
         {src : loadImage('../assets/backgrounds/background-1.png'), y: 0, speed: 1}
         ];
         this.playerImage = [loadImage('../assets/player/playerShip1_blue.png'),
-                            loadImage('../assets/player/playerShip1_damage1.png'),
-                            loadImage('../assets/player/playerShip1_damage2.png'),
-                            loadImage('../assets/player/playerShip1_damage3.png') ]
+                            loadImage('../assets/player/image43.png'),
+                            loadImage('../assets/player/image44.png'),
+                            loadImage('../assets/player/image45.png'),
+                            loadImage('../assets/player/image46.png'),
+                            loadImage('../assets/player/image47.png'),
+                         ]
         this.enemyImage =[
             {src : loadImage('../assets/enemies/enemyBlack1.png')},
             {src : loadImage('../assets/enemies/image96.png')},
@@ -89,6 +92,7 @@ class Game {
     }
 
     backgroundMusic() {
+        backgroundMusic.setVolume(0.3);
         backgroundMusic.play();
         backgroundMusic.loop();
     }
@@ -118,6 +122,13 @@ class Game {
                 this.enemies = this.enemies.filter((el) => {
                     return el != enemy
                 })
+                console.log(this.playerImage);
+                setTimeout(function() {
+                    for (let i = 1; i < this.playerImage.length;i++){
+                        this.player.playerImage = this.playerImage[i]
+                    }
+                }, 500)
+                
                 gameStart = false; 
                 return gameOver = true
             } 

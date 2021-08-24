@@ -12,6 +12,7 @@ let musicPlay = true;
 
 
 function preload() {
+    // all sounds are preload
     backgroundMusic = loadSound('../assets/sounds/POL-waving-grass-short.wav');
     laserSound = loadSound('../assets/sounds/laser1.ogg')
     destroyedSound = loadSound('../assets/sounds/destroyed.wav')
@@ -25,9 +26,10 @@ function setup() {
     const canvas = createCanvas(600, 600)
     canvas.parent('canvas');
     game.setup()
-    startMusic.setVolume(0.5);
+    startMusic.setVolume(0.3);
     startMusic.play();
     startMusic.loop();
+    // Btn setups
     muteBtn = createButton('Mute');
     muteBtn.parent('mute');
     muteBtn.mousePressed(muteBG).addClass('btn mute-btn');
@@ -42,8 +44,6 @@ function setup() {
 function draw() {
     if (gameStart){
         setTimeout(function(){game.draw()}, 1000);
-        
-    
     // player move
         if (keyIsDown(37)) {
             game.player.moveLeft();
