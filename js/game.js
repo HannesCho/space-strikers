@@ -1,3 +1,6 @@
+let gameStart = false;
+let gameOver = false;
+
 class Game {
 
     constructor () {
@@ -79,9 +82,7 @@ class Game {
                 this.enemies = this.enemies.filter((el) => {
                     return el != enemy
                 })
-                console.log('game over!');
-                backgroundMusic.stop();
-                noLoop();
+                return gameOver = true
             } 
         })
             

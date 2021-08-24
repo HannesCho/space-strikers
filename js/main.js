@@ -5,6 +5,7 @@ let destroyedSound;
 let muteBtn;
 let musicPlay = true;
 
+
 function preload() {
     backgroundMusic = loadSound('../assets/sounds/POL-waving-grass-short.wav');
     laserSound = loadSound('../assets/sounds/laser1.ogg')
@@ -14,14 +15,15 @@ function preload() {
 
 function setup() {
     const canvas = createCanvas(600, 600)
-    canvas.parent('sketch-holder');
+    canvas.parent('canvas');
     game.setup()
     backgroundMusic.setVolume(0.01);
     backgroundMusic.play();
     backgroundMusic.loop();
     muteBtn = createButton('Mute /Unmute');
-    muteBtn.position(350, 700);
+    muteBtn.parent('btns');
     muteBtn.mousePressed(muteBG);
+    
     
 }
 
@@ -46,6 +48,12 @@ function draw() {
                 game.player.fierLaser();
             }
         }
+    }
+
+    if (gameOver) {
+        backgroundMusic.stop()
+        noLoop()
+        clear()
     }
 }
 
