@@ -6,6 +6,7 @@ class Game {
         this.enemyImage = [];
         this.enemies = [];
         this.laserImages = [];
+        this.lasers = [];
     }
 
     setup () {

@@ -74,7 +74,9 @@ class Player {
                 this.lasers.push(new Laser(this.x + (this.width - 9)/ 2, this.y - 37));
                 this.lasers.forEach((laser) => {
                     laser.draw();
+                    laserSound.setVolume(0.05);
                     laserSound.play();
+                    
                 })
             }
         

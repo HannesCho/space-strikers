@@ -11,8 +11,10 @@ function preload() {
 function setup() {
     createCanvas(600, 600)
     game.setup()
+    backgroundMusic.setVolume(0.01);
     backgroundMusic.play();
-    // backgroundMusic.loop();
+    backgroundMusic.loop();
+    
 }
 
 function draw() {
