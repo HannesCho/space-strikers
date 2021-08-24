@@ -82,6 +82,7 @@ class Game {
         document.querySelector('.pause-btn').innerText = 'Pause'
         startBtn.mousePressed(game.gamePause);
         startMusic.stop();
+        document.querySelector('#title').style.visibility = 'hidden'; 
         startSound.play()
         setTimeout(function(){game.backgroundMusic()}, 2000)
         return gameStart = true;
