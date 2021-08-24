@@ -94,21 +94,35 @@ class Game {
             this.enemies.push(new Enemy(this.enemyImage[0].src, this.enemyImage[0].level))
         }
         if (frameCount > 500) {
-            if (frameCount % 400 === 0) {
+            if (frameCount % 360 === 0) {
                 this.enemies.push(new Enemy(this.enemyImage[1].src, this.enemyImage[1].level))
             }
         }
         if (frameCount > 1000) {
-            if (frameCount % 500 === 0) {
+            if (frameCount % 470 === 0) {
             this.enemies.push(new Enemy(this.enemyImage[2].src, this.enemyImage[2].level))
             }
         }
-        if (frameCount > 1000) {
-            if (frameCount % 600 === 0) {
-            this.enemies.push(new Enemy(this.enemyImage[3].src, this.enemyImage[2].level))
+        if (frameCount > 2000) {
+            if (frameCount % 580 === 0) {
+            this.enemies.push(new Enemy(this.enemyImage[3].src, this.enemyImage[3].level))
+            }
+        }
+        if (frameCount > 4000) {
+            if (frameCount % 100 === 0) {
+                this.enemies.push(new Enemy(this.enemyImage[0].src, this.enemyImage[0].level))
+            if (frameCount % 110 === 0){
+                this.enemies.push(new Enemy(this.enemyImage[1].src, this.enemyImage[1].level))
+            }   
+            if (frameCount % 150 === 0) {
+                this.enemies.push(new Enemy(this.enemyImage[2].src, this.enemyImage[2].level))
+            } 
+            if (frameCount % 200 === 0) {
+                this.enemies.push(new Enemy(this.enemyImage[3].src, this.enemyImage[3].level))
             }
         }
     }
+}
 
     gameStart () {
         document.querySelector('.pause-btn').innerText = 'Pause'

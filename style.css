@@ -8,7 +8,7 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Rampart One", cursive;
-  background-color: rgb(190, 217, 233);
+  background-color: rgb(104, 122, 136);
 }
 
 #container {
@@ -42,7 +42,7 @@ body {
 .bg {
   width: 600px;
   height: 600px;
-  background-image: url("assets/backgrounds/grid_bg.png");
+  background-image: url("assets/backgrounds/background03.jpg");
   background-size: cover;
 }
 
@@ -70,7 +70,7 @@ body {
   border: black 1px solid;
   border-radius: 20px;
   text-align: center;
-  font-size: 30px;
+  font-size: 35px;
   font-family: "Bebas Neue", cursive;
 }
 
@@ -79,7 +79,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 30px;
+  font-size: 40px;
+  color: white;
 }
 
 #gameover {

@@ -24,12 +24,18 @@ class Enemy {
             }
             image(this.enemyImage, this.x, this.y - this.height, this.width, this.height)
         }
-        if (this. level === 3) {
+        if (this.level === 3) {
             this.y += this.level
             image(this.enemyImage, this.x, this.y - this.height, this.width, this.height)
         }
-        if (this. level === 4) {
+        if (this.level === 4) {
             this.y += this.level
+            if (this.x > 300) {
+                this.x -= 2
+            }
+            if (this.x < 300) {
+                this.x += 2
+            }
             image(this.enemyImage, this.x, this.y - this.height, this.width, this.height)
         }
        
