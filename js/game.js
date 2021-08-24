@@ -1,5 +1,7 @@
 let gameStart = false;
+let gamePause = false;
 let gameOver = false;
+
 
 class Game {
 
@@ -80,12 +82,28 @@ class Game {
         return gameStart = true;
     }
 
+    gamePause () {
+        gamePause = !gamePause;
+        if (!gameOver){
+            if (gamePause) {
+                console.log('game paused');
+                noLoop();
+                backgroundMusic.stop();
+            } else {
+                console.log('game continue');
+                loop();
+                backgroundMusic.play()
+            }
+        } 
+    }
+
     gameOver () {
         this.enemies.forEach((enemy) => {
             if (this.player.collision(enemy) === true) {
                 this.enemies = this.enemies.filter((el) => {
                     return el != enemy
                 })
+                gameStart = false; 
                 return gameOver = true
             } 
         })

@@ -23,40 +23,41 @@ function setup() {
     backgroundMusic.play();
     backgroundMusic.loop();
     muteBtn = createButton('Mute /Unmute');
-    muteBtn.parent('btns');
-    muteBtn.mousePressed(muteBG);
+    muteBtn.parent('mute');
+    muteBtn.mousePressed(muteBG).addClass('btn');
     startBtn = createButton('Start');
-    startBtn.parent('btns');
+    startBtn.parent('start').addClass('btn');
     startBtn.mousePressed(game.gameStart)
-    pauseBtn = createButton('Pause');
-    pauseBtn.parent('btns');
+    pauseBtn = createButton('Pause').addClass('btn');
+    pauseBtn.parent('pause');
+    pauseBtn.mouseClicked(game.gamePause);
 }
 
 function draw() {
     if (gameStart){
         game.draw();
-    }
     
     // player move
-    if (keyIsDown(37)) {
-        game.player.moveLeft();
-    }
-    if (keyIsDown(38)) {
-        game.player.moveUp();
-    }
-    if (keyIsDown(39)) {
-        game.player.moveRight();
-    }
-    if (keyIsDown(40)) {
-        game.player.moveDown();
-    }
-    if (frameCount % 20 === 0) {
-        if (keyIsDown(32)) {
-            if (frameCount % 20 === 0) {
-                game.player.fierLaser();
+        if (keyIsDown(37)) {
+            game.player.moveLeft();
+        }
+        if (keyIsDown(38)) {
+            game.player.moveUp();
+        }
+        if (keyIsDown(39)) {
+            game.player.moveRight();
+        }
+        if (keyIsDown(40)) {
+            game.player.moveDown();
+        }
+        if (frameCount % 20 === 0) {
+            if (keyIsDown(32)) {
+                if (frameCount % 25 === 0) {
+                    game.player.fierLaser();
+                }
             }
         }
-    }
+    }   
 
     if (gameOver) {
         backgroundMusic.stop()
@@ -66,8 +67,10 @@ function draw() {
 }
 
 function keyPressed() {
-    if (keyCode === 32) {
+    if (gameStart) {
+        if (keyCode === 32) {
         game.player.fierLaser()
+        }
     }
 }
 

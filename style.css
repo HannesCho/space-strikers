@@ -6,10 +6,50 @@ body {
   justify-content: center;
   align-items: center;
   font-family: "Rampart One", cursive;
-  background-color: rgb(184, 184, 184);
+  background-color: rgb(190, 217, 233);
+}
+
+.container {
+  display: flex;
+}
+
+.bg {
+  width: 600px;
+  height: 600px;
+  background-image: url("assets/backgrounds/grid_bg.png");
+  background-size: cover;
+}
+
+.nav {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  margin-bottom: 10px;
+  width: 150px;
+  height: 50px;
+  border: rgb(134, 199, 230) 1px solid;
+  border-radius: 20px;
+  color: rgb(134, 199, 230);
+  text-align: center;
+  font-size: 16px;
 }
 
 #sketch-holder {
   width: 600px;
   height: 600px;
+}
+
+.score-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
