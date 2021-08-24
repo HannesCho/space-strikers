@@ -26,7 +26,7 @@ function setup() {
     const canvas = createCanvas(600, 600)
     canvas.parent('canvas');
     game.setup()
-    startMusic.setVolume(0.3);
+    startMusic.setVolume(0.0);
     startMusic.play();
     startMusic.loop();
     // Btn setups
@@ -66,8 +66,9 @@ function draw() {
 
     if (gameOver) {
         backgroundMusic.stop()
-        noLoop()
         clear()
+        noLoop()
+        
     }
 }
 

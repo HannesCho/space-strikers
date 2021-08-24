@@ -1,15 +1,38 @@
 class Enemy {
-    constructor() {
+    constructor(enemyImage, level) {
         this.width = 50;
         this.height = 50;
         this.x = Math.floor((Math.random() * (width - this.width)));
         this.y = 0;
         this.speed = 1;
+        this.enemyImage = enemyImage;
+        this.level = level;
     }
 
     draw () {
-        this.y += this.speed
-        image(game.enemyImage[0].src, this.x, this.y - this.height, this.width, this.height)
+        if (this.level ===1) {
+            this.y += this.level
+        image(this.enemyImage, this.x, this.y - this.height, this.width, this.height)
+        }
+        if (this.level === 2){
+            this.y += this.level
+            if (this.x > 300) {
+                this.x -= 1
+            }
+            if (this.x < 300) {
+                this.x += 1
+            }
+            image(this.enemyImage, this.x, this.y - this.height, this.width, this.height)
+        }
+        if (this. level === 3) {
+            this.y += this.level
+            image(this.enemyImage, this.x, this.y - this.height, this.width, this.height)
+        }
+        if (this. level === 4) {
+            this.y += this.level
+            image(this.enemyImage, this.x, this.y - this.height, this.width, this.height)
+        }
+       
     }
 
     destroyed (laserInfo) {
@@ -24,11 +47,10 @@ class Enemy {
 			return false
 		} else {
 			// here we have a collision
-            
             destroyedSound.play()
-            image(game.enemyImage[3].src, enemyX-2, this.y-this.height)
-            image(game.enemyImage[2].src, enemyX-10, this.y-this.height)
-            image(game.enemyImage[1].src, this.x, this.y-this.height)
+            image(game.enemydestroyedImage[2].src, enemyX-2, this.y-this.height)
+            image(game.enemydestroyedImage[1].src, enemyX-10, this.y-this.height)
+            image(game.enemydestroyedImage[0].src, this.x, this.y-this.height)
 			return true;
 		}
     }

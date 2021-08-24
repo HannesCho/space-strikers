@@ -9,6 +9,7 @@ class Game {
         this.backgroundImages = [];
         this.playerImage = [];
         this.enemyImage = [];
+        this.enemydestroyedImage = [];
         this.enemies = [];
         this.laserImages = [];
         this.lasers = [];
@@ -30,26 +31,33 @@ class Game {
                             loadImage('../assets/player/image45.png'),
                             loadImage('../assets/player/image46.png'),
                             loadImage('../assets/player/image47.png'),
-                         ]
+        ];
         this.enemyImage =[
-            {src : loadImage('../assets/enemies/enemyBlack1.png')},
+            {src : loadImage('../assets/enemies/enemyBlack1.png'),
+            level:1},
+            {src : loadImage('../assets/enemies/enemyBlue2.png'),
+            level:2},
+            {src : loadImage('../assets/enemies/enemyGreen3.png'),
+            level:3},
+            {src : loadImage('../assets/enemies/enemyRed4.png'),
+            level:4},
+        ];
+        this.enemydestroyedImage = [
             {src : loadImage('../assets/enemies/image96.png')},
             {src : loadImage('../assets/enemies/image99.png')},
             {src : loadImage('../assets/enemies/image100.png')},
-        ]
+        ];
+
         this.laserImages = [
             {src : loadImage('../assets/laser/laserBlue03.png')}
-            ];
+        ];
     }
 
     draw() {
         this.background.draw()
         this.player.draw()
 
-        //add enemy in every 200 frame
-        if (frameCount % 200 === 0) {
-            this.enemies.push(new Enemy())
-        }
+        this.drawenemies()        
         this.enemies.forEach((enemy) => {
             enemy.draw();
         })
@@ -79,6 +87,27 @@ class Game {
         })
         
         
+    }
+
+    drawenemies () { // add more enemies
+        if (frameCount % 200 === 0) {
+            this.enemies.push(new Enemy(this.enemyImage[0].src, this.enemyImage[0].level))
+        }
+        if (frameCount > 500) {
+            if (frameCount % 400 === 0) {
+                this.enemies.push(new Enemy(this.enemyImage[1].src, this.enemyImage[1].level))
+            }
+        }
+        if (frameCount > 1000) {
+            if (frameCount % 500 === 0) {
+            this.enemies.push(new Enemy(this.enemyImage[2].src, this.enemyImage[2].level))
+            }
+        }
+        if (frameCount > 1000) {
+            if (frameCount % 600 === 0) {
+            this.enemies.push(new Enemy(this.enemyImage[3].src, this.enemyImage[2].level))
+            }
+        }
     }
 
     gameStart () {
@@ -122,13 +151,7 @@ class Game {
                 this.enemies = this.enemies.filter((el) => {
                     return el != enemy
                 })
-                console.log(this.playerImage);
-                setTimeout(function() {
-                    for (let i = 1; i < this.playerImage.length;i++){
-                        this.player.playerImage = this.playerImage[i]
-                    }
-                }, 500)
-                
+                this.player.playerImage = this.playerImage[1]
                 gameStart = false; 
                 return gameOver = true
             } 
