@@ -68,6 +68,8 @@ function draw() {
         backgroundMusic.stop()
         clear()
         noLoop()
+        let gameoverText = createDiv('Game Over');
+        gameoverText.parent('container').id('gameover')
         
     }
 }
