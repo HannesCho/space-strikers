@@ -59,7 +59,6 @@ class Game {
             this.enemies.forEach((enemy) => {
                 if (enemy.destroyed(laser) === true) {
                     this.player.score += 10
-                    console.log(this.player.score);
                     document.querySelector('.score').innerText = this.player.score;
                     this.enemies = this.enemies.filter((el) => {
                         return el != enemy
