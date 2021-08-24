@@ -3,6 +3,8 @@ let backgroundMusic;
 let laserSound;
 let destroyedSound;
 let muteBtn;
+let pauseBtn;
+let startBtn;
 let musicPlay = true;
 
 
@@ -23,7 +25,10 @@ function setup() {
     muteBtn = createButton('Mute /Unmute');
     muteBtn.parent('btns');
     muteBtn.mousePressed(muteBG);
-    
+    startBtn = createButton('Start');
+    startBtn.parent('btns');
+    pauseBtn = createButton('Pause');
+    pauseBtn.parent('btns');
     
 }
 
