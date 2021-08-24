@@ -27,13 +27,16 @@ function setup() {
     muteBtn.mousePressed(muteBG);
     startBtn = createButton('Start');
     startBtn.parent('btns');
+    startBtn.mousePressed(game.gameStart)
     pauseBtn = createButton('Pause');
     pauseBtn.parent('btns');
-    
 }
 
 function draw() {
-    game.draw();
+    if (gameStart){
+        game.draw();
+    }
+    
     // player move
     if (keyIsDown(37)) {
         game.player.moveLeft();

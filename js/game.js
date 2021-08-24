@@ -76,6 +76,10 @@ class Game {
         
     }
 
+    gameStart () {
+        return gameStart = true;
+    }
+
     gameOver () {
         this.enemies.forEach((enemy) => {
             if (this.player.collision(enemy) === true) {
