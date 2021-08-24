@@ -1,7 +1,10 @@
 const game = new Game;
 let backgroundMusic;
+let startMusic;
+let startSound;
 let laserSound;
 let destroyedSound;
+let playerDiedSound;
 let muteBtn;
 let pauseBtn;
 let startBtn;
@@ -12,6 +15,9 @@ function preload() {
     backgroundMusic = loadSound('../assets/sounds/POL-waving-grass-short.wav');
     laserSound = loadSound('../assets/sounds/laser1.ogg')
     destroyedSound = loadSound('../assets/sounds/destroyed.wav')
+    playerDiedSound = loadSound('../assets/sounds/plyerdestroyed.wav')
+    startMusic = loadSound('../assets/sounds/POL-air-sharks-short.wav')
+    startSound = loadSound('../assets/sounds/engine_start_up_01.wav')
     game.preload()
 }
 
@@ -19,9 +25,9 @@ function setup() {
     const canvas = createCanvas(600, 600)
     canvas.parent('canvas');
     game.setup()
-    backgroundMusic.setVolume(0.01);
-    backgroundMusic.play();
-    backgroundMusic.loop();
+    startMusic.setVolume(0.5);
+    startMusic.play();
+    startMusic.loop();
     muteBtn = createButton('Mute');
     muteBtn.parent('mute');
     muteBtn.mousePressed(muteBG).addClass('btn mute-btn');
@@ -35,7 +41,7 @@ function setup() {
 
 function draw() {
     if (gameStart){
-        game.draw();
+        setTimeout(function(){game.draw()}, 1000);
         
     
     // player move
@@ -51,11 +57,9 @@ function draw() {
         if (keyIsDown(40)) {
             game.player.moveDown();
         }
-        if (frameCount % 20 === 0) {
+        if (frameCount % 25 === 0) {
             if (keyIsDown(32)) {
-                if (frameCount % 25 === 0) {
                     game.player.fierLaser();
-                }
             }
         }
     }   
@@ -77,11 +81,24 @@ function keyPressed() {
 
 function muteBG() {
     musicPlay = !musicPlay;
-    if (musicPlay) {
-        backgroundMusic.play();
-        document.querySelector('.mute-btn').innerText = 'Mute'
+    if (gameStart) {
+        if (musicPlay) {
+            backgroundMusic.play();
+            document.querySelector('.mute-btn').innerText = 'Mute'
+        } else {
+            
+            backgroundMusic.stop();
+            document.querySelector('.mute-btn').innerText = 'Unmute'
+        }
+
     } else {
-        backgroundMusic.stop();
-        document.querySelector('.mute-btn').innerText = 'Unmute'
+        if (musicPlay) {
+            startMusic.play();
+            document.querySelector('.mute-btn').innerText = 'Mute'
+        } else {
+            startMusic.stop();
+            document.querySelector('.mute-btn').innerText = 'Unmute'
+        }
     }
+    
 }

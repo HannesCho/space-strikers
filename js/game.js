@@ -80,8 +80,16 @@ class Game {
 
     gameStart () {
         document.querySelector('.pause-btn').innerText = 'Pause'
-        startBtn.mousePressed(game.gamePause)
+        startBtn.mousePressed(game.gamePause);
+        startMusic.stop();
+        startSound.play()
+        setTimeout(function(){game.backgroundMusic()}, 2000)
         return gameStart = true;
+    }
+
+    backgroundMusic() {
+        backgroundMusic.play();
+        backgroundMusic.loop();
     }
 
     gamePause () {
@@ -113,9 +121,5 @@ class Game {
                 return gameOver = true
             } 
         })
-            
-        
-        
     }
-
 }
