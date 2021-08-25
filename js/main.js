@@ -13,12 +13,12 @@ let musicPlay = true;
 
 function preload() {
     // all sounds are preload
-    backgroundMusic = loadSound('../assets/sounds/POL-waving-grass-short.wav');
-    laserSound = loadSound('../assets/sounds/laser1.ogg')
-    destroyedSound = loadSound('../assets/sounds/destroyed.wav')
-    playerDiedSound = loadSound('../assets/sounds/plyerdestroyed.wav')
-    startMusic = loadSound('../assets/sounds/POL-air-sharks-short.wav')
-    startSound = loadSound('../assets/sounds/engine_start_up_01.wav')
+    backgroundMusic = loadSound('./assets/sounds/POL-waving-grass-short.wav');
+    laserSound = loadSound('./assets/sounds/laser1.ogg')
+    destroyedSound = loadSound('./assets/sounds/destroyed.wav')
+    playerDiedSound = loadSound('./assets/sounds/plyerdestroyed.wav')
+    startMusic = loadSound('./assets/sounds/POL-air-sharks-short.wav')
+    startSound = loadSound('./assets/sounds/engine_start_up_01.wav')
     game.preload()
 }
 
@@ -26,7 +26,7 @@ function setup() {
     const canvas = createCanvas(600, 600)
     canvas.parent('canvas');
     game.setup()
-    startMusic.setVolume(0.5);
+    startMusic.setVolume(0.3);
     startMusic.play();
     startMusic.loop();
     // Btn setups
@@ -86,19 +86,40 @@ function muteBG() {
     musicPlay = !musicPlay;
     if (gameStart) {
         if (musicPlay) {
+            startMusic.setVolume(0.0)
+            startSound.setVolume(0.3)
+            destroyedSound.setVolume(0.3)
+            laserSound.setVolume(0.3)
+            playerDiedSound.setVolume(1)
+            startMusic.stop();
             backgroundMusic.play();
             document.querySelector('.mute-btn').innerText = 'Mute'
         } else {
-            
+            startMusic.setVolume(0.0)
+            startSound.setVolume(0.0)
+            destroyedSound.setVolume(0.0)
+            laserSound.setVolume(0.0)
+            playerDiedSound.setVolume(0.0)
             backgroundMusic.stop();
             document.querySelector('.mute-btn').innerText = 'Unmute'
         }
 
-    } else {
+    } else if (!gameStart && !gameOver) {
         if (musicPlay) {
+            destroyedSound.setVolume(0.3)
+            laserSound.setVolume(0.3)
+            playerDiedSound.setVolume(1)
+            startMusic.setVolume(0.3);
+            backgroundMusic.setVolume(0.3);
             startMusic.play();
             document.querySelector('.mute-btn').innerText = 'Mute'
         } else {
+            startMusic.setVolume(0.0)
+            startSound.setVolume(0.0)
+            destroyedSound.setVolume(0.0)
+            laserSound.setVolume(0.0)
+            playerDiedSound.setVolume(0.0)
+            backgroundMusic.stop();
             startMusic.stop();
             document.querySelector('.mute-btn').innerText = 'Unmute'
         }
