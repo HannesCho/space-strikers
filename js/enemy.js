@@ -46,28 +46,47 @@ class Enemy {
 
         let enemyX = this.x + this.width / 2;
         let enemyY = this.y - this.height / 2;
-       
-        if (dist(laserX, laserY, enemyX, enemyY) > 25) {
-			return 1
-		} else {
-			// here we have a collision
-            if (this.life > 0) {
-                console.log(this.life);
-                this.life -= 1;
-                image(game.enemydestroyedImage[3].src, enemyX-2, this.y-this.height)
-                image(game.enemydestroyedImage[4].src, enemyX-2, this.y-this.height)
-                return 2
-            } 
-            if (this.life === 0) {
-            console.log(this.life);
-            destroyedSound.play()
-            image(game.enemydestroyedImage[2].src, enemyX-2, this.y-this.height)
-            image(game.enemydestroyedImage[1].src, enemyX-10, this.y-this.height)
-            image(game.enemydestroyedImage[0].src, this.x, this.y-this.height)
-            return 3
+
+        if (this.level <= 4) {
+            if (dist(laserX, laserY, enemyX, enemyY) > 25) {
+                return 1
+            } else {
+                // here we have a collision
+                if (this.life > 0) {
+                    this.life -= 1;
+                    image(game.enemydestroyedImage[3].src, enemyX-2, this.y-this.height)
+                    image(game.enemydestroyedImage[4].src, enemyX-2, this.y-this.height)
+                    return 2
+                } 
+                if (this.life === 0) {
+                destroyedSound.play()
+                image(game.enemydestroyedImage[2].src, enemyX-2, this.y-this.height)
+                image(game.enemydestroyedImage[1].src, enemyX-10, this.y-this.height)
+                image(game.enemydestroyedImage[0].src, this.x, this.y-this.height)
+                return 3
+                }
             }
-			
-		}
+        } else {
+            if (dist(laserX, laserY, enemyX, enemyY) > 150) {
+                return 1
+            } else {
+                // here we have a collision
+                if (this.life > 0) {
+                    console.log("hit!");
+                    this.life -= 1;
+                    image(game.enemydestroyedImage[3].src, enemyX-2, this.y-this.height)
+                    image(game.enemydestroyedImage[4].src, enemyX-2, this.y-this.height)
+                    return 2
+                } 
+                if (this.life === 0) {
+                destroyedSound.play()
+                image(game.enemydestroyedImage[2].src, enemyX-2, this.y-this.height)
+                image(game.enemydestroyedImage[1].src, enemyX-10, this.y-this.height)
+                image(game.enemydestroyedImage[0].src, this.x, this.y-this.height)
+                return 3
+                }
+            }
+        }
     }
 
-}
+} 

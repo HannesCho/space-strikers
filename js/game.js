@@ -87,13 +87,11 @@ class Game {
         this.player.lasers.forEach((laser) => {
             this.enemies.forEach((enemy) => {
                 if (enemy.destroyed(laser) === 2) {
-                    console.log('hit');
                     this.player.lasers = this.player.lasers.filter((el) => {
                         return el != laser
                     })
                 } 
                 if (enemy.destroyed(laser) === 3) {
-                    console.log('die');
                     this.player.score += 10
                     document.querySelector('.score').innerText = this.player.score;
                     this.enemies = this.enemies.filter((el) => {
