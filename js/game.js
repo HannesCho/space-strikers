@@ -34,13 +34,25 @@ class Game {
         ];
         this.enemyImage =[
             {src : loadImage('./assets/enemies/enemyBlack1.png'),
-            level:1},
+            level:1,
+            life : 1
+            },
             {src : loadImage('./assets/enemies/enemyBlue2.png'),
-            level:2},
+            level:2,
+            life : 2
+            },
             {src : loadImage('./assets/enemies/enemyGreen3.png'),
-            level:3},
+            level:3,
+            life : 2
+            },
             {src : loadImage('./assets/enemies/enemyRed4.png'),
-            level:4},
+            level:4,
+            life : 2
+            },
+            {src : loadImage('./assets/enemies/enemyBlack5.png'),
+            level:5,
+            life : 100
+            },
         ];
         this.enemydestroyedImage = [
             {src : loadImage('./assets/enemies/image96.png')},
@@ -56,7 +68,6 @@ class Game {
     draw() {
         this.background.draw()
         this.player.draw()
-
         this.drawenemies()        
         this.enemies.forEach((enemy) => {
             enemy.draw();
@@ -90,6 +101,7 @@ class Game {
     }
 
     drawenemies () { // add more enemies
+        console.log(frameCount);
         if (frameCount % 200 === 0) {
             this.enemies.push(new Enemy(this.enemyImage[0].src, this.enemyImage[0].level))
         }
@@ -111,6 +123,7 @@ class Game {
         if (frameCount > 4000) {
             if (frameCount % 100 === 0) {
                 this.enemies.push(new Enemy(this.enemyImage[0].src, this.enemyImage[0].level))
+            }
             if (frameCount % 110 === 0){
                 this.enemies.push(new Enemy(this.enemyImage[1].src, this.enemyImage[1].level))
             }   
@@ -121,8 +134,10 @@ class Game {
                 this.enemies.push(new Enemy(this.enemyImage[3].src, this.enemyImage[3].level))
             }
         }
+        if (frameCount === 1000) {
+            this.enemies.push(new Enemy(this.enemyImage[4].src, this.enemyImage[4].level))
+        }
     }
-}
 
     gameStart () {
         document.querySelector('.pause-btn').innerText = 'Pause'

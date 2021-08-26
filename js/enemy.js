@@ -16,12 +16,7 @@ class Enemy {
         }
         if (this.level === 2){
             this.y += this.level
-            if (this.x > 300) {
-                this.x -= 1
-            }
-            if (this.x < 300) {
-                this.x += 1
-            }
+            this.x += 1
             image(this.enemyImage, this.x, this.y - this.height, this.width, this.height)
         }
         if (this.level === 3) {
@@ -30,13 +25,15 @@ class Enemy {
         }
         if (this.level === 4) {
             this.y += this.level
-            if (this.x > 300) {
-                this.x -= 2
-            }
-            if (this.x < 300) {
-                this.x += 2
-            }
+            this.x -= 2
             image(this.enemyImage, this.x, this.y - this.height, this.width, this.height)
+        }
+        if (this.level === 5) {
+            this.x = 150
+            if (this.y < 150) {
+                this.y += 1;
+            }
+            image(this.enemyImage, this.x, this.y - 150, 300, 300)
         }
        
     }
