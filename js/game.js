@@ -103,39 +103,39 @@ class Game {
     drawenemies () { // add more enemies
         console.log(frameCount);
         if (frameCount % 200 === 0) {
-            this.enemies.push(new Enemy(this.enemyImage[0].src, this.enemyImage[0].level))
+            this.enemies.push(new Enemy(this.enemyImage[0].src, this.enemyImage[0].level, this.enemyImage[0].life))
         }
         if (frameCount > 500) {
             if (frameCount % 360 === 0) {
-                this.enemies.push(new Enemy(this.enemyImage[1].src, this.enemyImage[1].level))
+                this.enemies.push(new Enemy(this.enemyImage[1].src, this.enemyImage[1].level, this.enemyImage[1].life))
             }
         }
         if (frameCount > 1000) {
             if (frameCount % 470 === 0) {
-            this.enemies.push(new Enemy(this.enemyImage[2].src, this.enemyImage[2].level))
+            this.enemies.push(new Enemy(this.enemyImage[2].src, this.enemyImage[2].level, this.enemyImage[2].life))
             }
         }
         if (frameCount > 2000) {
             if (frameCount % 580 === 0) {
-            this.enemies.push(new Enemy(this.enemyImage[3].src, this.enemyImage[3].level))
+            this.enemies.push(new Enemy(this.enemyImage[3].src, this.enemyImage[3].level, this.enemyImage[3].life))
             }
         }
         if (frameCount > 4000) {
             if (frameCount % 100 === 0) {
-                this.enemies.push(new Enemy(this.enemyImage[0].src, this.enemyImage[0].level))
+                this.enemies.push(new Enemy(this.enemyImage[0].src, this.enemyImage[0].level, this.enemyImage[0].life))
             }
             if (frameCount % 110 === 0){
-                this.enemies.push(new Enemy(this.enemyImage[1].src, this.enemyImage[1].level))
+                this.enemies.push(new Enemy(this.enemyImage[1].src, this.enemyImage[1].level, this.enemyImage[1].life))
             }   
             if (frameCount % 150 === 0) {
-                this.enemies.push(new Enemy(this.enemyImage[2].src, this.enemyImage[2].level))
+                this.enemies.push(new Enemy(this.enemyImage[2].src, this.enemyImage[2].level, this.enemyImage[2].life))
             } 
             if (frameCount % 200 === 0) {
-                this.enemies.push(new Enemy(this.enemyImage[3].src, this.enemyImage[3].level))
+                this.enemies.push(new Enemy(this.enemyImage[3].src, this.enemyImage[3].level, this.enemyImage[3].life))
             }
         }
         if (frameCount === 1000) {
-            this.enemies.push(new Enemy(this.enemyImage[4].src, this.enemyImage[4].level))
+            this.enemies.push(new Enemy(this.enemyImage[4].src, this.enemyImage[4].level, this.enemyImage[4].life))
         }
     }
 

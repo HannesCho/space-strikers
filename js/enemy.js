@@ -1,5 +1,5 @@
 class Enemy {
-    constructor(enemyImage, level) {
+    constructor(enemyImage, level, life) {
         this.width = 50;
         this.height = 50;
         this.x = Math.floor((Math.random() * (width - this.width)));
@@ -7,6 +7,7 @@ class Enemy {
         this.speed = 1;
         this.enemyImage = enemyImage;
         this.level = level;
+        this.life = life
     }
 
     draw () {
@@ -50,11 +51,17 @@ class Enemy {
 			return false
 		} else {
 			// here we have a collision
+            if (this.enemyImage.life > 0) {
+                life -=1
+                return false
+            } else {
             destroyedSound.play()
             image(game.enemydestroyedImage[2].src, enemyX-2, this.y-this.height)
             image(game.enemydestroyedImage[1].src, enemyX-10, this.y-this.height)
             image(game.enemydestroyedImage[0].src, this.x, this.y-this.height)
-			return true;
+            return true;
+            }
+			
 		}
     }
 
