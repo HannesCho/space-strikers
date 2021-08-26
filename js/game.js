@@ -43,11 +43,11 @@ class Game {
             },
             {src : loadImage('./assets/enemies/enemyGreen3.png'),
             level:3,
-            life : 2
+            life : 3
             },
             {src : loadImage('./assets/enemies/enemyRed4.png'),
             level:4,
-            life : 2
+            life : 3
             },
             {src : loadImage('./assets/enemies/enemyBlack5.png'),
             level:5,
@@ -84,7 +84,14 @@ class Game {
         // when missile hit the enemy both will disappear
         this.player.lasers.forEach((laser) => {
             this.enemies.forEach((enemy) => {
-                if (enemy.destroyed(laser) === true) {
+                if (enemy.destroyed(laser) === 2) {
+                    console.log('hit');
+                    this.player.lasers = this.player.lasers.filter((el) => {
+                        return el != laser
+                    })
+                } 
+                if (enemy.destroyed(laser) === 3) {
+                    console.log('die');
                     this.player.score += 10
                     document.querySelector('.score').innerText = this.player.score;
                     this.enemies = this.enemies.filter((el) => {
@@ -101,7 +108,6 @@ class Game {
     }
 
     drawenemies () { // add more enemies
-        console.log(frameCount);
         if (frameCount % 200 === 0) {
             this.enemies.push(new Enemy(this.enemyImage[0].src, this.enemyImage[0].level, this.enemyImage[0].life))
         }

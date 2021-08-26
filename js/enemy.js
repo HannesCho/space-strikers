@@ -7,7 +7,7 @@ class Enemy {
         this.speed = 1;
         this.enemyImage = enemyImage;
         this.level = level;
-        this.life = life
+        this.life = life;
     }
 
     draw () {
@@ -48,18 +48,21 @@ class Enemy {
         let enemyY = this.y - this.height / 2;
        
         if (dist(laserX, laserY, enemyX, enemyY) > 25) {
-			return false
+			return 1
 		} else {
 			// here we have a collision
-            if (this.enemyImage.life > 0) {
-                life -=1
-                return false
-            } else {
+            if (this.life > 0) {
+                console.log(this.life);
+                this.life -= 1;
+                return 2
+            } 
+            if (this.life === 0) {
+            console.log(this.life);
             destroyedSound.play()
             image(game.enemydestroyedImage[2].src, enemyX-2, this.y-this.height)
             image(game.enemydestroyedImage[1].src, enemyX-10, this.y-this.height)
             image(game.enemydestroyedImage[0].src, this.x, this.y-this.height)
-            return true;
+            return 3
             }
 			
 		}
