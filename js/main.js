@@ -5,6 +5,7 @@ let startSound;
 let laserSound;
 let destroyedSound;
 let playerDiedSound;
+let winSound;
 let muteBtn;
 let pauseBtn;
 let startBtn;
@@ -19,6 +20,7 @@ function preload() {
     playerDiedSound = loadSound('./assets/sounds/plyerdestroyed.wav')
     startMusic = loadSound('./assets/sounds/POL-air-sharks-short.wav')
     startSound = loadSound('./assets/sounds/engine_start_up_01.wav')
+    winSound = loadSound('./assets/sounds/winfretless.ogg')
     game.preload()
 }
 
@@ -73,6 +75,8 @@ function draw() {
         
     }
     if (gameWin) {
+        winSound.setVolume(0.8)
+        winSound.play()
         backgroundMusic.stop()
         clear()
         noLoop()
