@@ -54,6 +54,8 @@ class Enemy {
             if (this.life > 0) {
                 console.log(this.life);
                 this.life -= 1;
+                image(game.enemydestroyedImage[3].src, enemyX-2, this.y-this.height)
+                image(game.enemydestroyedImage[4].src, enemyX-2, this.y-this.height)
                 return 2
             } 
             if (this.life === 0) {

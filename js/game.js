@@ -58,6 +58,8 @@ class Game {
             {src : loadImage('./assets/enemies/image96.png')},
             {src : loadImage('./assets/enemies/image99.png')},
             {src : loadImage('./assets/enemies/image100.png')},
+            {src : loadImage('./assets/enemies/image102.png')},
+            {src : loadImage('./assets/enemies/image103.png')},
         ];
 
         this.laserImages = [
