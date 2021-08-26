@@ -1,6 +1,7 @@
 let gameStart = false;
 let gamePause = false;
 let gameOver = false;
+let gameWin = false;
 
 
 class Game {
@@ -60,6 +61,12 @@ class Game {
             {src : loadImage('./assets/enemies/image100.png')},
             {src : loadImage('./assets/enemies/image102.png')},
             {src : loadImage('./assets/enemies/image103.png')},
+            {src : loadImage('./assets/enemies/image43.png')},
+            {src : loadImage('./assets/enemies/image44.png')},
+            {src : loadImage('./assets/enemies/image45.png')},
+            {src : loadImage('./assets/enemies/image46.png')},
+            {src : loadImage('./assets/enemies/image47.png')},
+            {src : loadImage('./assets/enemies/image48.png')},
         ];
 
         this.laserImages = [
@@ -101,6 +108,18 @@ class Game {
                         return el != laser
                     })
                 }
+                if (enemy.destroyed(laser) === 4) { //kill boss
+                    console.log('win!');
+                    this.player.score += 1000
+                    document.querySelector('.score').innerText = this.player.score;
+                    this.enemies = this.enemies.filter((el) => {
+                        return el != enemy
+                    })
+                    this.player.lasers = this.player.lasers.filter((el) => {
+                        return el != laser
+                    })
+                    this.winGame();
+                }
             })
         })
         
@@ -140,7 +159,7 @@ class Game {
                 this.enemies.push(new Enemy(this.enemyImage[3].src, this.enemyImage[3].level, this.enemyImage[3].life))
             }
         }
-        if (frameCount === 1000) {
+        if (frameCount % 6000 === 0) {
             this.enemies.push(new Enemy(this.enemyImage[4].src, this.enemyImage[4].level, this.enemyImage[4].life))
         }
     }
@@ -194,4 +213,9 @@ class Game {
             } 
         })
     }
+
+    winGame() {
+        return gameWin = true;
+    }
 }
+

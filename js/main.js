@@ -72,6 +72,13 @@ function draw() {
         gameoverText.parent('container').id('gameover')
         
     }
+    if (gameWin) {
+        backgroundMusic.stop()
+        clear()
+        noLoop()
+        let gameWitText = createDiv('You Win!!');
+        gameWitText.parent('container').id('gamewin')
+    }
 }
 
 function keyPressed() {

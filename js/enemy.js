@@ -54,6 +54,7 @@ class Enemy {
                 // here we have a collision
                 if (this.life > 0) {
                     this.life -= 1;
+                    destroyedSound.play()
                     image(game.enemydestroyedImage[3].src, enemyX-2, this.y-this.height)
                     image(game.enemydestroyedImage[4].src, enemyX-2, this.y-this.height)
                     return 2
@@ -72,18 +73,19 @@ class Enemy {
             } else {
                 // here we have a collision
                 if (this.life > 0) {
-                    console.log("hit!");
+                    destroyedSound.play()
                     this.life -= 1;
-                    image(game.enemydestroyedImage[3].src, enemyX-2, this.y-this.height)
-                    image(game.enemydestroyedImage[4].src, enemyX-2, this.y-this.height)
+                    image(game.enemydestroyedImage[5].src, laserInfo.x, laserInfo.y, 50)
+                    image(game.enemydestroyedImage[6].src, laserInfo.x, laserInfo.y, 50)
                     return 2
                 } 
                 if (this.life === 0) {
                 destroyedSound.play()
-                image(game.enemydestroyedImage[2].src, enemyX-2, this.y-this.height)
-                image(game.enemydestroyedImage[1].src, enemyX-10, this.y-this.height)
-                image(game.enemydestroyedImage[0].src, this.x, this.y-this.height)
-                return 3
+                image(game.enemydestroyedImage[7].src, enemyX-2, this.y-this.height)
+                image(game.enemydestroyedImage[8].src, enemyX-10, this.y-this.height)
+                image(game.enemydestroyedImage[9].src, this.x, this.y-this.height)
+                image(game.enemydestroyedImage[10].src, this.x, this.y-this.height)
+                return 4
                 }
             }
         }
