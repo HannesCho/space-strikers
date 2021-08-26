@@ -20,7 +20,7 @@ function preload() {
     playerDiedSound = loadSound('./assets/sounds/plyerdestroyed.wav')
     startMusic = loadSound('./assets/sounds/POL-air-sharks-short.wav')
     startSound = loadSound('./assets/sounds/engine_start_up_01.wav')
-    winSound = loadSound('./assets/sounds/winfretless.ogg')
+    winSound = loadSound('./assets/sounds/victory.ogg')
     game.preload()
 }
 
@@ -75,7 +75,7 @@ function draw() {
         
     }
     if (gameWin) {
-        winSound.setVolume(0.8)
+        winSound.setVolume(1)
         winSound.play()
         backgroundMusic.stop()
         clear()

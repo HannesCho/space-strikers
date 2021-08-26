@@ -50,7 +50,7 @@ class Game {
             level:4,
             life : 3
             },
-            {src : loadImage('./assets/enemies/enemyBlack5.png'),
+            {src : loadImage('./assets/enemies/enemyRed5.png'),
             level:5,
             life : 100
             },
@@ -159,7 +159,7 @@ class Game {
                 this.enemies.push(new Enemy(this.enemyImage[3].src, this.enemyImage[3].level, this.enemyImage[3].life))
             }
         }
-        if (frameCount % 1000 === 0) {
+        if (frameCount % 6000 === 0) {
             this.enemies.push(new Enemy(this.enemyImage[4].src, this.enemyImage[4].level, this.enemyImage[4].life))
         }
     }

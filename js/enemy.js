@@ -30,11 +30,11 @@ class Enemy {
             image(this.enemyImage, this.x, this.y - this.height, this.width, this.height)
         }
         if (this.level === 5) {
-            this.x = 150
+            this.x = 195
             if (this.y < 150) {
                 this.y += 1;
             }
-            image(this.enemyImage, this.x, this.y - 150, 300, 300)
+            image(this.enemyImage, this.x, this.y - 105, 210, 210)
         }
        
     }
@@ -68,7 +68,7 @@ class Enemy {
                 }
             }
         } else {
-            if (dist(laserX, laserY, enemyX, enemyY) > 150) {
+            if (dist(laserX, laserY, enemyX, enemyY) > 105) {
                 return 1
             } else {
                 // here we have a collision
@@ -81,10 +81,12 @@ class Enemy {
                 } 
                 if (this.life === 0) {
                 destroyedSound.play()
-                image(game.enemydestroyedImage[7].src, enemyX-2, this.y-this.height)
-                image(game.enemydestroyedImage[8].src, enemyX-10, this.y-this.height)
-                image(game.enemydestroyedImage[9].src, this.x, this.y-this.height)
-                image(game.enemydestroyedImage[10].src, this.x, this.y-this.height)
+                image(game.enemydestroyedImage[7].src, enemyX, enemyY)
+                image(game.enemydestroyedImage[8].src, enemyX, enemyY)
+                image(game.enemydestroyedImage[9].src, enemyX, enemyY)
+                image(game.enemydestroyedImage[10].src, enemyX, enemyY)
+                image(game.enemydestroyedImage[10].src, enemyX, enemyY)
+                image(game.enemydestroyedImage[10].src, enemyX, enemyY)
                 return 4
                 }
             }
